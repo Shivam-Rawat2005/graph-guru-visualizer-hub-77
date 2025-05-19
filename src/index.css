@@ -6,13 +6,13 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 267 75% 60%;
+    --foreground: 267 40% 30%;
 
     --card: 0 0% 100%;
-    --card-foreground: 267 75% 60%;
+    --card-foreground: 267 40% 30%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 267 75% 60%;
+    --popover-foreground: 267 40% 30%;
 
     --primary: 267 75% 60%;
     --primary-foreground: 0 0% 100%;
@@ -21,10 +21,10 @@
     --secondary-foreground: 0 0% 98%;
 
     --muted: 240 4.8% 95.9%;
-    --muted-foreground: 267 75% 60%;
+    --muted-foreground: 267 20% 45%;
 
-    --accent: 267 75% 95%;
-    --accent-foreground: 240 5.9% 10%;
+    --accent: 267 25% 95%;
+    --accent-foreground: 267 60% 30%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -54,41 +54,41 @@
   }
 
   .dark {
-    --background: 0 0% 0%;
-    --foreground: 267 75% 75%;
+    --background: 260 15% 10%;
+    --foreground: 267 75% 85%;
 
-    --card: 0 0% 0%;
-    --card-foreground: 267 75% 75%;
+    --card: 260 15% 10%;
+    --card-foreground: 267 75% 85%;
 
-    --popover: 0 0% 0%;
-    --popover-foreground: 267 75% 75%;
+    --popover: 260 15% 10%;
+    --popover-foreground: 267 75% 85%;
 
     --primary: 267 75% 75%;
-    --primary-foreground: 0 0% 0%;
+    --primary-foreground: 260 15% 10%;
 
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 267 75% 75%;
+    --secondary: 260 10% 15%;
+    --secondary-foreground: 267 75% 85%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 267 75% 65%;
+    --muted: 260 15% 20%;
+    --muted-foreground: 267 35% 70%;
 
-    --accent: 267 75% 15%;
-    --accent-foreground: 267 75% 75%;
+    --accent: 267 25% 25%;
+    --accent-foreground: 267 75% 85%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 62.8% 40.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 267 75% 25%;
-    --input: 0 0% 20%;
+    --border: 267 25% 25%;
+    --input: 260 15% 20%;
     --ring: 267 75% 75%;
 
-    --sidebar-background: 0 0% 0%;
-    --sidebar-foreground: 267 75% 75%;
+    --sidebar-background: 260 15% 10%;
+    --sidebar-foreground: 267 75% 85%;
     --sidebar-primary: 267 75% 75%;
-    --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 0 0% 10%;
-    --sidebar-accent-foreground: 267 75% 75%;
-    --sidebar-border: 0 0% 15%;
+    --sidebar-primary-foreground: 260 15% 10%;
+    --sidebar-accent: 260 15% 15%;
+    --sidebar-accent-foreground: 267 75% 85%;
+    --sidebar-border: 260 15% 20%;
     --sidebar-ring: 267 75% 75%;
 
     --graph-node: 267 75% 75%;
@@ -97,7 +97,7 @@
     --graph-selected-edge: 267 75% 60%;
     --graph-highlight: 267 75% 60%;
     --graph-visited-node: 267 75% 70%;
-    --graph-background: 0 0% 0%;
+    --graph-background: 260 15% 10%;
   }
 }
 
@@ -107,6 +107,42 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
+  }
+  
+  h1 {
+    @apply text-3xl md:text-4xl;
+  }
+  
+  h2 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  h3 {
+    @apply text-xl md:text-2xl;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-background/80 backdrop-blur-sm border shadow-sm;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-primary/70 text-transparent bg-clip-text;
+  }
+}
+
+@layer utilities {
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 400ms;
   }
 }
